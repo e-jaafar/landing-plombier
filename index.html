@@ -174,7 +174,9 @@
             position: relative;
             padding-top: 8rem;
             padding-bottom: 6rem;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, rgba(240, 249, 255, 0.9) 0%, rgba(224, 242, 254, 0.85) 100%), url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
             overflow: hidden;
         }
 
@@ -186,7 +188,7 @@
             width: 600px;
             height: 600px;
             background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            opacity: 0.15;
+            opacity: 0.1;
             filter: blur(80px);
             z-index: 0;
         }
@@ -387,12 +389,36 @@
 
         .service-card {
             background: var(--surface-alt);
-            padding: 2.5rem;
+            padding: 0;
             border-radius: var(--radius-lg);
             border: 1px solid rgba(0,0,0,0.03);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 2.5rem;
+            flex: 1;
+            background: var(--surface-alt);
+            transition: background 0.3s ease;
+        }
+
+        .service-card:hover .service-content {
+            background: white;
         }
 
         .service-card:hover {
@@ -470,15 +496,18 @@
         }
 
         .reviewer-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: var(--surface-alt);
+        }
+
+        .reviewer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .reviewer-info h4 {
@@ -493,7 +522,9 @@
 
         .contact {
             padding: 6rem 0;
-            background: var(--secondary);
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
             position: relative;
             overflow: hidden;
@@ -714,51 +745,69 @@
 
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.74 5.74a8.12 8.12 0 1 1-11.48 0L12 2.69z"></path><path d="M12 2.69l5.74 5.74a8.12 8.12 0 1 1-11.48 0L12 2.69z"></path></svg>
+                    <img src="https://images.unsplash.com/photo-1676231934372-50d4076753d0?w=800&q=80" alt="Recherche de fuite" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.74 5.74a8.12 8.12 0 1 1-11.48 0L12 2.69z"></path><path d="M12 2.69l5.74 5.74a8.12 8.12 0 1 1-11.48 0L12 2.69z"></path></svg>
+                        </div>
+                        <h3 class="service-title">Recherche de Fuites</h3>
+                        <p class="service-desc">Détection non-destructive et réparation immédiate de toutes vos fuites d'eau, visibles ou encastrées.</p>
                     </div>
-                    <h3 class="service-title">Recherche de Fuites</h3>
-                    <p class="service-desc">Détection non-destructive et réparation immédiate de toutes vos fuites d'eau, visibles ou encastrées.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m8 17 4 4 4-4"></path></svg>
+                    <img src="https://images.unsplash.com/photo-1676231934448-b4226f316885?w=800&q=80" alt="Débouchage" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m8 17 4 4 4-4"></path></svg>
+                        </div>
+                        <h3 class="service-title">Débouchage</h3>
+                        <p class="service-desc">Intervention rapide pour WC, éviers, douches et canalisations bouchées. Hydrocurage haute pression.</p>
                     </div>
-                    <h3 class="service-title">Débouchage</h3>
-                    <p class="service-desc">Intervention rapide pour WC, éviers, douches et canalisations bouchées. Hydrocurage haute pression.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80" alt="Chauffe-eau" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <h3 class="service-title">Chauffe-eau</h3>
+                        <p class="service-desc">Dépannage, détartrage et remplacement de ballons d'eau chaude et chauffe-eaux toutes marques.</p>
                     </div>
-                    <h3 class="service-title">Chauffe-eau</h3>
-                    <p class="service-desc">Dépannage, détartrage et remplacement de ballons d'eau chaude et chauffe-eaux toutes marques.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-1h-1"></path><path d="M9 6h11a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2Z"></path></svg>
+                    <img src="https://images.unsplash.com/photo-1620626012053-84f045739f64?w=800&q=80" alt="Rénovation Salle de bain" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-1h-1"></path><path d="M9 6h11a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2Z"></path></svg>
+                        </div>
+                        <h3 class="service-title">Rénovation Salle de bain</h3>
+                        <p class="service-desc">Création et rénovation complète. Installation de douches italiennes, baignoires et robinetterie.</p>
                     </div>
-                    <h3 class="service-title">Rénovation Salle de bain</h3>
-                    <p class="service-desc">Création et rénovation complète. Installation de douches italiennes, baignoires et robinetterie.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                    <img src="https://images.unsplash.com/photo-1605615923951-6839353a25d7?w=800&q=80" alt="Installation" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                        </div>
+                        <h3 class="service-title">Installation</h3>
+                        <p class="service-desc">Pose de réseaux, raccordements lave-linge/lave-vaisselle, pose de WC suspendus.</p>
                     </div>
-                    <h3 class="service-title">Installation</h3>
-                    <p class="service-desc">Pose de réseaux, raccordements lave-linge/lave-vaisselle, pose de WC suspendus.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Entretien" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        </div>
+                        <h3 class="service-title">Entretien</h3>
+                        <p class="service-desc">Contrats d'entretien annuels pour votre sérénité. Vérification des joints, robinetterie et écoulements.</p>
                     </div>
-                    <h3 class="service-title">Entretien</h3>
-                    <p class="service-desc">Contrats d'entretien annuels pour votre sérénité. Vérification des joints, robinetterie et écoulements.</p>
                 </div>
             </div>
         </div>
@@ -775,7 +824,9 @@
                     <div class="stars">★★★★★</div>
                     <p class="review-text">"Intervention en moins de 20 minutes pour une fuite importante un dimanche soir. Le plombier était courtois, efficace et le prix annoncé a été respecté. Je recommande vivement."</p>
                     <div class="reviewer">
-                        <div class="reviewer-avatar">SP</div>
+                        <div class="reviewer-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80" alt="Sophie P.">
+                        </div>
                         <div class="reviewer-info">
                             <h4>Sophie P.</h4>
                             <span>Paris 15ème</span>
@@ -786,7 +837,9 @@
                     <div class="stars">★★★★★</div>
                     <p class="review-text">"J'ai fait appel à Dupont Plomberie pour refaire ma salle de bain. Travail impeccable, finitions soignées. Une équipe de vrais professionnels."</p>
                     <div class="reviewer">
-                        <div class="reviewer-avatar">MD</div>
+                        <div class="reviewer-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80" alt="Marc D.">
+                        </div>
                         <div class="reviewer-info">
                             <h4>Marc D.</h4>
                             <span>Boulogne-Billancourt</span>
@@ -797,7 +850,9 @@
                     <div class="stars">★★★★★</div>
                     <p class="review-text">"Chauffe-eau en panne en plein hiver. Remplacé dans la journée. Service client au top et artisan très pédagogue qui explique ce qu'il fait."</p>
                     <div class="reviewer">
-                        <div class="reviewer-avatar">JL</div>
+                        <div class="reviewer-avatar">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80" alt="Jean L.">
+                        </div>
                         <div class="reviewer-info">
                             <h4>Jean L.</h4>
                             <span>Issy-les-Moulineaux</span>
